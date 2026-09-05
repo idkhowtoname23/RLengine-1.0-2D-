@@ -28,7 +28,7 @@ function RLengine.init(w, h)
     local vertexSize = ffi.sizeof("Vertex")
     local velSize = ffi.sizeof("Velocity")
     
-    -- Выделение C-памяти в обход сборщика мусора LuaJIT
+    
     RLengine.data = love.data.newByteData(vertexSize * RLengine.maxCount)
     RLengine.velData = love.data.newByteData(velSize * RLengine.maxCount)
     
@@ -109,7 +109,7 @@ function RLengine.update(dt)
 
     local damp = 1 - dt * 0.25
 
-    -- Оптимизированное разделение циклов без ветвлений внутри итераций
+    
     if applyForce then
         for i = 0, count - 1 do
             local p = ptr[i]
